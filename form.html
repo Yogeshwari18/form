@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Form</title>
+    <script>
+		function submitForm() {
+			// Get form values
+			 var firstName = document.getElementById("firstname").value;
+			var lastName = document.getElementById("lastname").value;
+			 var dob = document.getElementById("dob").value;
+			// var gender = document.querySelector('input[name="gender"]:checked').value;
+            // var gender = document.getElementById("gender");
+            //  gender.checked = true;
+            var ele = document.getElementsByName( 'gender' );
+            var dd;
+            for(i=0; i< ele.length; i++) {
+                if(ele[i].checked)
+                dd = ele[i].value;
+            }
+			// var hobby = document.getElementById("hobby").value;
+             document.getElementById('btn').onClick = function() {  
+             var markedCheckbox = document.getElementsByName('pl');  
+             for (var checkbox of markedCheckbox) {  
+             if (checkbox.checked)  
+                 document.body.append(checkbox.value + ' ');  
+  }  
+}  
+
+			// Display alert
+			alert("Thank you for submitting the form, " + firstName + " " + lastName + "! Your date of birth is " + dob + ", you identify as " + dd  + ", and your hobby is " + hobby + ".");
+            //alert("Hey,"+ firstName+ dd);
+		}
+	</script>
+</head>
+<body>
+	<h2>Fill out the form below:</h2>
+	<form action="#" method="post">
+		<label for="firstname">First Name:</label>
+		<input type="text" id="firstname" name="firstname"><br>
+
+		<label for="lastname">Last Name:</label>
+		<input type="text" id="lastname" name="lastname"><br>
+
+		<label for="dob">Date of Birth:</label>
+		<input type="date" id="dob" name="dob"><br>
+
+		<label for="gender">Gender:</label>
+        <input type="radio" name="gender" value="male"> Male 
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="others"> others
+        <br>
+		
+		<label for="hobby">Hobby:</label>
+		<!-- <input type="text" id="hobby" name="hobby"><br> -->
+        <tr>  
+            <td> Dancing: <input type="checkbox" id="check1" name="pl" value="Dancing"> </td> <br> 
+            <td> Music: <input type="checkbox" id="check2" name="pl" value="Music"> </td>  <br> 
+            </tr> <tr>  
+            <td> Playing : <input type="checkbox" id="check3" name="pl" value="Playing"> </td>  <br>
+            <td> Gaming: <input type="checkbox" id="check4" name="pl" value="Gaming"> </td>  <br>
+            </tr> <tr>  
+            <td> Shopping: <input type="checkbox" id="check5" name="pl" value="Shopping"> </td>  <br>
+            <td> Watching Movie: <input type="checkbox" id="check6" name="pl" value="Watching Movie"> </td> <br> <br>   
+
+		<input type="button" value="Submit" onClick="submitForm()">
+	</form>
+</body>
+</html>
